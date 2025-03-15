@@ -11,6 +11,9 @@ if (!isset($_SESSION['usuario_id'])) {
     exit();
 }
 
+$sql = "SELECT * FROM atividades";
+$result = $conexao->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -29,8 +32,8 @@ if (!isset($_SESSION['usuario_id'])) {
         <br>
         <hr>
 
-        <h3>Tarefas</h3>
-        <a href="criar.php">Criar Atividade</a>
+        <h3>Calendário de Atividades</h3>
+        <a href="criar.php"><button type="button" class="btn btn-primary">Criar atividade</button></a>
 
         <table class="table">
             <thead>
@@ -44,14 +47,19 @@ if (!isset($_SESSION['usuario_id'])) {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Estudar</td>
-                    <td>15/03/2025 15:44</td>
-                    <td></td>
-                    <td>Pendente</td>
-                    <td></td>
-                </tr>
+                <?php while ($activy = $result->fetch_assoc()): ?>
+                    <tr>
+                        <td><?= $activy['nome'] ?></td>
+                        <td><?= $activy['descricao'] ?></td>
+                        <td><?= date("d/m/Y H:i:s", strtotime($activy['data_inicio'])) ?></td>
+                        <td><?= date("d/m/Y H:i:s", strtotime($activy['data_termino'])) ?></td>
+                        <td><?= $activy['status'] ?></td>
+                        <td>
+                            <a href="editar.php"><button type="button" class="btn btn-info">Editar</button></a>
+                            <a href="excluir.php"><button type="button" class="btn btn-danger">Excluir</button></a>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
             </tbody>
         </table>
 
@@ -59,7 +67,7 @@ if (!isset($_SESSION['usuario_id'])) {
 
         <br>
         <hr>
-        <a href="sair.php">Sair da conta</a>
+        <a href="sair.php"><button type="button" class="btn btn-danger">Sair da conta</button></a>
     </div>
 </body>
 
