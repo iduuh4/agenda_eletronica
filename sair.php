@@ -1,4 +1,5 @@
 <?php
+//sair da conta logada
 
 session_start();
 session_destroy();

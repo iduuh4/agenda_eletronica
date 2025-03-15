@@ -1,4 +1,5 @@
 <?php
+//Tela de Cadastro
 require_once 'conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -32,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form method="post" action="cadastro.php">
             <div class="mb-3">
                 <label class="form-label">Usuário</label>
-                <input name="login" type="text" class="form-control" required>
+                <input name="login" type="text" class="form-control" autofocus required>
             </div>
             <div class="mb-3">
                 <label class="form-label">Senha</label>

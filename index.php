@@ -1,4 +1,6 @@
 <?php
+// tela inicial de login
+
 session_start();
 require_once 'conexao.php';
 
@@ -48,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form method="post" action="index.php">
             <div class="mb-3">
                 <label for="" class="form-label">Usuário</label>
-                <input type="text" class="form-control" name="login" required>
+                <input type="text" class="form-control" name="login" autofocus required>
             </div>
             <div class="mb-3">
                 <label class="form-label">Senha</label>
