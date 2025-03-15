@@ -32,9 +32,9 @@ $result = $conexao->query($sql);
         <br>
         <hr>
 
-        <h3>Calendário de Atividades</h3>
+        <h3>Calendário de Atividades</h3> <br>
         <a href="criar.php"><button type="button" class="btn btn-primary">Criar atividade</button></a>
-
+        <br><br>
         <table class="table">
             <thead>
                 <tr>
@@ -55,8 +55,8 @@ $result = $conexao->query($sql);
                         <td><?= date("d/m/Y H:i:s", strtotime($activy['data_termino'])) ?></td>
                         <td><?= $activy['status'] ?></td>
                         <td>
-                            <a href="editar.php"><button type="button" class="btn btn-info">Editar</button></a>
-                            <a href="excluir.php"><button type="button" class="btn btn-danger">Excluir</button></a>
+                            <a href="editar.php?id=<?= $activy['id'] ?>"><button type="button" class="btn btn-info">Editar</button></a>
+                            <a href="excluir.php?id=<?= $activy['id'] ?>"><button type="button" class="btn btn-danger">Excluir</button></a>
                         </td>
                     </tr>
                 <?php endwhile; ?>

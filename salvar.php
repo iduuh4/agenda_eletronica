@@ -1,4 +1,5 @@
 <?php
+//inserir novas atividades ao banco de dados
 include 'conexao.php';
 
 $nome = $_POST['nome'];
