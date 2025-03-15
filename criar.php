@@ -17,7 +17,7 @@
     <div class="container">
         <h1>Cadastrar Atividade</h1>
         <br>
-        <form method="post" action="cadastro.php">
+        <form method="post" action="salvar.php">
             <div class="mb-3">
                 <label class="form-label">Nome</label>
                 <input name="nome" type="text" class="form-control" autofocus required>
