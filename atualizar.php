@@ -11,7 +11,7 @@ $status = $_POST['status'];
 $sql = "UPDATE atividades SET nome='$nome', descricao='$descricao', data_inicio='$data_inicio', data_termino='$data_termino', status='$status' WHERE id=$id";
 
 if ($conexao->query($sql)) {
-        header("Location: calendario.php");
+        header("Location: fullCalendar.php");
 } else {
         echo "Erro de conexão: " . $conexao->error;
 }

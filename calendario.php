@@ -28,11 +28,10 @@ $result = $conexao->query($sql);
 
 <body>
     <div class="container">
-        <h1>Bem vindo, <?= $welcome ?>!</h1>
         <br>
         <hr>
 
-        <h3>Calendário de Atividades</h3> <br>
+        <h3>Lista das Atividades</h3> <br>
         <a href="criar.php"><button type="button" class="btn btn-primary">Criar atividade</button></a>
         <a href="fullCalendar.php"><button type="button" class="btn btn-primary">Ir ao Calendário</button></a>
         <br><br>

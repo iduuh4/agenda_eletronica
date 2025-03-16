@@ -53,7 +53,7 @@ $activy = $result->fetch_assoc();
             </div>
             <br>
             <button type="submit" class="btn btn-primary">Editar</button>
-            <a href="calendario.php"><button type="button" class="btn btn-danger">Cancelar</button></a>
+            <a href="fullCalendar.php"><button type="button" class="btn btn-danger">Cancelar</button></a>
         </form>
     </div>
 </body>

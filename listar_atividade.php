@@ -19,7 +19,7 @@ while ($activy = $result->fetch_assoc()) {
         'title' => $nome,
         'descricao' => $descricao,
         'start' => $data_inicio,
-        'data_termino' => $data_termino,
+        'end' => $data_termino,
         'status' => $status
     ];
 }
