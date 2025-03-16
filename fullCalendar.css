@@ -16,6 +16,13 @@ body {
   color: white;
   text-decoration: none;
 }
+#buttonPerson {
+  color: white;
+  text-decoration: none;
+}
+#buttonPerson:hover {
+  color: #d1d1d1;
+}
 
 tr {
   font-size: 10px;
