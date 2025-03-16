@@ -17,6 +17,7 @@ $activy = $result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Atividade</title>
     <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="fullCalendar.css">
 </head>
 
 <body>
@@ -25,7 +26,6 @@ $activy = $result->fetch_assoc();
         <br>
         <form method="post" action="atualizar.php">
             <div class="mb-3">
-
                 <input type="hidden" name="id" value="<?= $activy['id'] ?>">
 
                 <label class="form-label">Nome</label>

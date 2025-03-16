@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sql = "INSERT INTO usuarios (login, senha) VALUES ('$login', '$senha')";
 
     if ($conexao->query($sql)) {
-        echo "Cadastro feito com sucesso!";
+        echo '<script> alert ("Cadastro criado com sucesso!"); location.href=("index.php")</script>';
     } else {
         echo "Erro ao realizar o cadastro: " . $conexao->error;
     }

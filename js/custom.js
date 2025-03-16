@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
       dayMaxEvents: true, // allow "more" link when too many events
       
       events: 'listar_atividade.php',
-      //recebe o clique na atividade
+      //abre o modal ao clicar
       eventClick: function (info) {
     
         const mostrarModal = document.getElementById("mostrarModal");

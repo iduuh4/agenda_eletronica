@@ -16,3 +16,20 @@ body {
   color: white;
   text-decoration: none;
 }
+
+tr {
+  font-size: 10px;
+
+  color: white;
+}
+th {
+  font-size: 14pt;
+  background-color: green;
+  color: white;
+}
+
+td {
+  font-size: 14pt;
+  background-color: #757575;
+  color: #cccccc;
+}

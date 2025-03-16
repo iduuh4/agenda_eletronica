@@ -1,6 +1,5 @@
 <?php
 //tela calendario e listagem das atividades
-
 session_start();
 require_once 'conexao.php';
 
@@ -11,9 +10,8 @@ if (!isset($_SESSION['usuario_id'])) {
     exit();
 }
 
-$sql = "SELECT * FROM atividades";
-$result = $conexao->query($sql);
-
+//pegando o id do usuario logado
+$usuario_id = $_SESSION['usuario_id'];
 ?>
 
 <!DOCTYPE html>
@@ -30,12 +28,14 @@ $result = $conexao->query($sql);
 </head>
 
 <body>
-
-
     <div class="container">
-        <h1>Bem vindo, <?= $welcome ?>!</h1> <br>
-        <a href="criar.php"><button type="button" class="btn btn-success">Criar atividade</button></a>
-        <a href="calendario.php"><button type="button" class="btn btn-dark">Voltar para lista</button></a>
+        <h1 class="d-flex justify-content-center">Bem vindo, <?= $welcome ?>!</h1> <br>
+        <div class="d-flex justify-content-evenly">
+            <a clas href="criar.php"><button type="button" class="btn btn-success">Criar atividade</button></a>
+            <a href="calendario.php"><button type="button" class="btn btn-dark">Voltar para lista</button></a>
+            <a href="sair.php"><button type="button" class="btn btn-danger">Sair da conta</button></a>
+        </div>
+
         <br><br>
         <div id='calendar'></div>
 
@@ -49,7 +49,6 @@ $result = $conexao->query($sql);
                     </div>
                     <div class="modal-body">
                         <dl class="row">
-
                             <dt class="col-sm-3">Nome: </dt>
                             <dd class="col-sm-9" id="mostrar_nome">A description list is perfect for defining terms.</dd>
 
@@ -73,14 +72,7 @@ $result = $conexao->query($sql);
                 </div>
             </div>
         </div>
-
-        <div class="modal-footer">
-
-        </div>
     </div>
-
-
-
 
     <script src="bootstrap.bundle.min.js"></script>
     <script src="./js/index.global.min.js"></script>
