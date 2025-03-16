@@ -7,7 +7,9 @@ if (!isset($_SESSION['usuario_id'])) {
     exit();
 }
 
-// Verificar o limite de atividades do usuário
+$usuario_id = $_SESSION['usuario_id'];
+
+// verificar o limite de atividades do usuário
 $sql_verificar_limite = "SELECT limite_atividades FROM usuarios WHERE id = ?";
 $stmt_verificar_limite = $conexao->prepare($sql_verificar_limite);
 $stmt_verificar_limite->bind_param("i", $usuario_id);
@@ -17,7 +19,7 @@ $row_verificar_limite = $result_verificar_limite->fetch_assoc();
 
 $limite_atividades = $row_verificar_limite['limite_atividades'];
 
-// Contar quantas atividades o usuário já criou
+// contar quantas atividades o usuário já criou no db 
 $sql_contar_atividades = "SELECT COUNT(*) AS total FROM atividades WHERE usuario_id = ?";
 $stmt_contar_atividades = $conexao->prepare($sql_contar_atividades);
 $stmt_contar_atividades->bind_param("i", $usuario_id);
@@ -27,13 +29,13 @@ $row_contar_atividades = $result_contar_atividades->fetch_assoc();
 
 $total_atividades = $row_contar_atividades['total'];
 
-// Verificar se o usuário pode criar mais atividades
+// verificar se o usuário pode ou nao criar mais atividades
 if ($total_atividades >= $limite_atividades) {
     echo "Você atingiu o limite máximo de atividades (" . $limite_atividades . ").";
     exit();
 }
 
-// Se o limite não foi atingido, criar a nova atividade
+// see o limite não foi atingido, criar a nova atividade
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
     $descricao = $_POST['descricao'];
@@ -66,33 +68,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
         <h1>Criar Atividade</h1>
         <form method="POST">
-            <div class="mb-3 form-group">
+            <div class="form-group">
                 <label for="nome">Nome</label>
                 <input type="text" class="form-control" id="nome" name="nome" required>
             </div>
-            <div class="mb-3 form-group">
+            <div class="form-group">
                 <label for="descricao">Descrição</label>
                 <textarea class="form-control" id="descricao" name="descricao" required></textarea>
             </div>
-            <div class="mb-3 form-group">
+            <div class="form-group">
                 <label for="data_inicio">Data de Início</label>
                 <input type="datetime-local" class="form-control" id="data_inicio" name="data_inicio" required>
             </div>
-            <div class="mb-3 form-group">
+            <div class="form-group">
                 <label for="data_termino">Data de Término</label>
                 <input type="datetime-local" class="form-control" id="data_termino" name="data_termino">
             </div>
-            <div class="mb-3 form-group">
+            <div class="form-group">
                 <label for="status">Status</label>
                 <select class="form-control" id="status" name="status" required>
-                    <option value="Pendente">Pendente</option>
-                    <option value="Cancelado">Cancelado</option>
-                    <option value="Concluido">Concluído</option>
+                    <option value="pendente">Pendente</option>
+                    <option value="em_andamento">Em Andamento</option>
+                    <option value="concluido">Concluído</option>
                 </select>
             </div>
             <br>
             <button type="submit" class="btn btn-success">Criar</button>
-            <a href="fullCalendar.php"><button type="button" class="btn btn-danger">Cancelar</button></a>
+            <a href="fullCalendar.php"><button type="button" class="btn btn-danger">Voltar</button></a>
         </form>
     </div>
 </body>

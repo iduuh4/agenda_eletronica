@@ -24,11 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Cadastro</title>
     <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="fullCalendar.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Área de Cadastro</h1>
+        <h1 class="d-flex justify-content-center">Área de Cadastro</h1>
         <br>
         <form method="post" action="cadastro.php">
             <div class="mb-3">

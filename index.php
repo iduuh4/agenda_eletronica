@@ -41,24 +41,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Login</title>
     <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="fullCalendar.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Área de Login</h1>
+
+        <h1 class="d-flex justify-content-center">Área de Login</h1>
         <br>
         <form method="post" action="index.php">
             <div class="mb-3">
-                <label for="" class="form-label">Usuário</label>
+                <label for="" class="form-label">Usuário:</label>
                 <input type="text" class="form-control" name="login" autofocus required>
             </div>
             <div class="mb-3">
-                <label class="form-label">Senha</label>
+                <label class="form-label">Senha:</label>
                 <input type="password" class="form-control" name="senha" required>
             </div>
 
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
+
         <br>
         <p>Não possui uma conta ? <a href="cadastro.php">Cadastrar</a></p>
     </div>

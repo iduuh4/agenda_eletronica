@@ -12,6 +12,27 @@ if (!isset($_SESSION['usuario_id'])) {
 
 //pegando o id do usuario logado
 $usuario_id = $_SESSION['usuario_id'];
+
+
+// pegando o limite de atividades do usuário
+$sql_limite = "SELECT limite_atividades FROM usuarios WHERE id = ?";
+$stmt_limite = $conexao->prepare($sql_limite);
+$stmt_limite->bind_param("i", $usuario_id);
+$stmt_limite->execute();
+$result_limite = $stmt_limite->get_result();
+$row_limite = $result_limite->fetch_assoc();
+
+$limite_atividades = $row_limite['limite_atividades'];
+
+// contar quantas atividades o usuário já criou para mostrar
+$sql_contar = "SELECT COUNT(*) AS total FROM atividades WHERE usuario_id = ?";
+$stmt_contar = $conexao->prepare($sql_contar);
+$stmt_contar->bind_param("i", $usuario_id);
+$stmt_contar->execute();
+$result_contar = $stmt_contar->get_result();
+$row_contar = $result_contar->fetch_assoc();
+
+$total_atividades = $row_contar['total'];
 ?>
 
 <!DOCTYPE html>
@@ -29,10 +50,14 @@ $usuario_id = $_SESSION['usuario_id'];
 
 <body>
     <div class="container">
-        <h1 class="d-flex justify-content-center">Bem vindo, <?= $welcome ?>!</h1> <br>
+        <h1 class="d-flex justify-content-center">Bem vindo, <?= $welcome ?>!</h1>
+        <p class="d-flex justify-content-center">
+            Você criou <?= $total_atividades ?> de <?= $limite_atividades ?> atividades permitidas.
+        </p>
         <div class="d-flex justify-content-evenly">
             <a clas href="criar.php"><button type="button" class="btn btn-success">Criar atividade</button></a>
             <a href="calendario.php"><button type="button" class="btn btn-dark">Voltar para lista</button></a>
+            <a href="limite_atividades.php"><button type="button" class="btn btn-info">Alterar limite</button></a>
             <a href="sair.php"><button type="button" class="btn btn-danger">Sair da conta</button></a>
         </div>
 
