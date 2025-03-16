@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['usuario_id'] = $usuario['id'];
             $_SESSION['usuario_login'] = $usuario['login'];
 
-            header("Location: calendario.php");
+            header("Location: fullCalendar.php");
             exit();
         } else {
             echo "Usuario ou senha incorretos!";

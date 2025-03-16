@@ -44,6 +44,7 @@
             </div>
             <br>
             <button type="submit" class="btn btn-primary">Adicionar</button>
+            <a href="fullCalendar.php"><button type="button" class="btn btn-danger">Cancelar</button></a>
         </form>
     </div>
 </body>

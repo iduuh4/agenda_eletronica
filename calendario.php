@@ -34,6 +34,7 @@ $result = $conexao->query($sql);
 
         <h3>Calendário de Atividades</h3> <br>
         <a href="criar.php"><button type="button" class="btn btn-primary">Criar atividade</button></a>
+        <a href="fullCalendar.php"><button type="button" class="btn btn-primary">Ir ao Calendário</button></a>
         <br><br>
         <table class="table">
             <thead>

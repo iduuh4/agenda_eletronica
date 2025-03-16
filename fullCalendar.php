@@ -5,22 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendário</title>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth'
-            });
-            calendar.render();
-        });
-    </script>
+    <link rel="stylesheet" href="fullCalendar.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
-    <div id='calendar'></div>
+    <div class="container">
+        <div id='calendar'></div>
+
+        <br>
+        <a href="calendario.php"><button type="button" class="btn btn-primary">Voltar para lista</button></a>
+    </div>
 
 
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+
+
+    <script src="./js/index.global.min.js"></script>
+    <script src="./js/core/locales-all.global.min.js"></script>
+    <script src="./js/custom.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="./fullcalendar-6.1.15/packages/bootstrap5/index.global.min.js"></script>
 </body>
 
 </html>
